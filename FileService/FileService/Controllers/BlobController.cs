@@ -110,8 +110,56 @@ namespace FileService.Controllers
             Stream blobStream = file.OpenReadAsync().Result;
             return File(blobStream, file.Properties.ContentType, file.Name);
             
-
         }
-        
+
+        [Route("DeleteFile/{fileName}")]
+        [HttpGet]
+        public async Task<bool> DeleteFile(string fileName)
+        {
+            MemoryStream ms = new MemoryStream();
+            BlobManager bm = new BlobManager();
+            CloudStorageAccount storageAccount = bm.InitializeAccount();
+            CloudBlobClient BlobClient = storageAccount.CreateCloudBlobClient();
+            CloudBlobContainer container = BlobClient.GetContainerReference("mysamplecontainer");
+            try
+            {
+                if (await container.ExistsAsync())
+                {
+                    CloudBlob file = container.GetBlobReference(fileName);
+
+                    if (await file.ExistsAsync())
+                    {
+                        await file.DeleteAsync();
+                    }
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+
+        public IActionResult DeleteBlob()
+        {
+            return View();
+        }
+
+        /*
+        [Route("DeleteFile/{fileName}")]
+        [HttpGet]
+        public async Task<bool> DeleteFile(string fileName)
+        {
+            BlobManager bm = new BlobManager();
+            CloudStorageAccount storageAccount = bm.InitializeAccount();
+            CloudBlobClient BlobClient = storageAccount.CreateCloudBlobClient();
+            CloudBlobContainer c1 = BlobClient.GetContainerReference("mysamplecontainer");
+            var blob = c1.GetBlobReference(fileName);
+            bool x =  await blob.DeleteIfExistsAsync();
+            return x;
+      
+        }
+        */
     }
 }

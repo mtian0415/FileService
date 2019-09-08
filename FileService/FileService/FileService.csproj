@@ -21,6 +21,7 @@
   <ItemGroup>
     <None Remove="Views\Home\EmptyHTMLFile.html" />
     <None Remove="Views\Home\View.html" />
+    <None Remove="Views\Blob\EmptyHTMLFile.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Blob\" />
