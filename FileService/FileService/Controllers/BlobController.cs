@@ -39,8 +39,9 @@ namespace FileService.Controllers
 
             return View();
         }
-               
+
         //=================download=============================
+        //https://docs.microsoft.com/en-us/azure/visual-studio/vs-storage-aspnet-core-getting-started-blobs
         public ActionResult ListBlobs()
         {
             BlobManager bm = new BlobManager();
