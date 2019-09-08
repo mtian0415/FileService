@@ -11,6 +11,18 @@
       <Publish>true</Publish>
     </PackageReference>
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="WindowsAzure.Storage" Version="9.3.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="Views\Home\UploadFile.cs" />
+    <Compile Remove="Controllers\EmptyClass.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Views\Home\EmptyHTMLFile.html" />
+    <None Remove="Views\Home\View.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Blob\" />
+  </ItemGroup>
 </Project>
