@@ -82,7 +82,7 @@ namespace FileService.Controllers
             //{
             //    CloudBlob file = c1.GetBlobReference(id);
 
-            //    if (file.ExistsAsync()) 
+            //    if (file.ExistsAsync())
             //    {
             //        file.DownloadToStreamAsync(ms);
             //        Stream blobStream = file.OpenReadAsync().Result;
@@ -110,6 +110,7 @@ namespace FileService.Controllers
             Stream blobStream = file.OpenReadAsync().Result;
             return File(blobStream, file.Properties.ContentType, file.Name);
             
+
         }
         
     }
