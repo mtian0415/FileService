@@ -13,7 +13,7 @@ namespace FileService.Controllers
 
         public CloudStorageAccount InitializeAccount()
         {
-            string connectionString = "DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;";
+            string connectionString = "DefaultEndpointsProtocol=https;AccountName=maquetteblobstorage;AccountKey=VlvkLTFDZZQWU3937ATX2FNmnsjHgyUQUygqRWQLLyYeBQtlBjP0qhQZhlqxs7VCrDfAVvceaC0G7Lwl4S4/Hw==;EndpointSuffix=core.windows.net";
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString);
             return storageAccount;
         }
